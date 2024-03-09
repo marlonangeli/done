@@ -1,13 +1,13 @@
 using Done.Api;
 using Done.Application;
-using Done.Infraestructure;
+using Done.Infrastructure;
 using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services
     .AddApplication()
-    .AddInfraestructure()
+    .AddInfraestructure(builder.Configuration)
     .AddPresentation();
 
 builder.Host.UseSerilog((context, configuration) =>
