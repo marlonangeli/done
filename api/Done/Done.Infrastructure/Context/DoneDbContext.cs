@@ -10,6 +10,7 @@ public class DoneDbContext : DbContext
 {
     public DbSet<ToDo> ToDos => Set<ToDo>();
     public DbSet<ToDoList> ToDoLists => Set<ToDoList>();
+    public DbSet<User> Users => Set<User>();
 
     public DoneDbContext(DbContextOptions<DoneDbContext> options) : base(options)
     {
@@ -33,7 +34,7 @@ public class DoneDbContext : DbContext
 
     private void UpdateAuditableEntities()
     {
-        var utcNow = DateTime.Now;
+        var utcNow = DateTime.UtcNow;
 
         foreach (var entityEntry in ChangeTracker.Entries<IEntity>())
         {

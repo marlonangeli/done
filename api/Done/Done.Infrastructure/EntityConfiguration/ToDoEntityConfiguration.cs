@@ -18,7 +18,7 @@ internal sealed class ToDoEntityConfiguration : IEntityTypeConfiguration<ToDo>
 
         builder.Property(x => x.Title)
             .IsRequired()
-            .HasMaxLength(128)
+            .HasMaxLength(Constants.ToDo.TitleMaxLength)
             .IsUnicode();
 
         builder.HasIndex(x => x.Title)
@@ -26,8 +26,7 @@ internal sealed class ToDoEntityConfiguration : IEntityTypeConfiguration<ToDo>
 
         builder.Property(x => x.Description)
             .IsRequired(false)
-            .HasMaxLength(2000)
-            .HasDefaultValue("")
+            .HasMaxLength(Constants.ToDo.DescriptionMaxLength)
             .IsUnicode();
 
         builder.Property(x => x.IsDone)

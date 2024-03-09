@@ -1,4 +1,5 @@
 using Done.Api;
+using Done.Api.Endpoints;
 using Done.Application;
 using Done.Infrastructure;
 using Serilog;
@@ -27,5 +28,7 @@ if (app.Environment.IsDevelopment())
 app.UseSerilogRequestLogging();
 
 app.UseHttpsRedirection();
+
+app.MapEndpoints();
 
 app.Run();

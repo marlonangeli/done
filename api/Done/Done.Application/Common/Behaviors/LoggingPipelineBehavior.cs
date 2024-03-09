@@ -3,8 +3,8 @@ using Microsoft.Extensions.Logging;
 
 namespace Done.Application.Common.Behaviors;
 
-public sealed class LoggingPipelineBehavior<TRequest, TResponse>(
-        ILogger logger)
+public class LoggingPipelineBehavior<TRequest, TResponse>(
+        ILogger<TRequest> logger)
     : IPipelineBehavior<TRequest, TResponse>
     where TRequest : IRequest<TResponse>
     where TResponse : notnull

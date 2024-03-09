@@ -4,7 +4,7 @@ public static class EndpointsExtensions
 {
     public static WebApplication MapEndpoints(this WebApplication app)
     {
-        app.MapGet("/", () => "Hello World!");
+        app.MapUserEndpoints();
 
         return app;
     }

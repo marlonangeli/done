@@ -25,7 +25,7 @@ internal sealed class ToDoListEntityConfiguration : IEntityTypeConfiguration<ToD
         builder.Property(x => x.Title)
             .IsRequired()
             .IsUnicode()
-            .HasMaxLength(64);
+            .HasMaxLength(Constants.ToDoList.TitleMaxLength);
 
         builder.HasIndex(x => x.Title)
             .IsUnique(false);

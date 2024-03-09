@@ -18,7 +18,7 @@ internal sealed class UserEntityConfiguration : IEntityTypeConfiguration<User>
 
         builder.Property(x => x.Email)
             .IsRequired()
-            .HasMaxLength(128)
+            .HasMaxLength(Constants.User.EmailMaxLength)
             .IsUnicode();
 
         builder.HasIndex(x => x.Email)
@@ -26,7 +26,7 @@ internal sealed class UserEntityConfiguration : IEntityTypeConfiguration<User>
 
         builder.Property(x => x.Username)
             .IsRequired()
-            .HasMaxLength(64)
+            .HasMaxLength(Constants.User.NameMaxLength)
             .IsUnicode();
     }
 }
