@@ -4,11 +4,11 @@ using Done.Infrastructure.Context;
 
 namespace Done.Application.Commands.CreateToDoList;
 
-public sealed record CreateToDoList(string Title, Guid UserId) : ICommand<ToDoList>;
+public sealed record CreateToDoListCommand(string Title, Guid UserId) : ICommand<ToDoList>;
 
-internal sealed class CreateToDoListCommandHandler(DoneDbContext context) : ICommandHandler<CreateToDoList, ToDoList>
+internal sealed class CreateToDoListCommandHandler(DoneDbContext context) : ICommandHandler<CreateToDoListCommand, ToDoList>
 {
-    public async Task<ToDoList> Handle(CreateToDoList request, CancellationToken cancellationToken)
+    public async Task<ToDoList> Handle(CreateToDoListCommand request, CancellationToken cancellationToken)
     {
         var toDoList = new ToDoList
         {
